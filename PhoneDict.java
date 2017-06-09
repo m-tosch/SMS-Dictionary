@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/** 
+ * @author m-tosch
+ * @version 1.0 5/26/2017
+ */
 public class PhoneDict{
 	/* Dictionary!
 	 * key: sequence code   values: words associated with it 
