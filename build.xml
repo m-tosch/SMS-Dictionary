@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project basedir="." default="run" name="assignment3">
+	
+	<property name="src" value="." />
+
+	<path id="classpath">
+		<fileset dir="${src}">
+		</fileset>
+	</path>
+
+
+        <!-- compile -->
+	<target name="compile" depends="PhoneDict, Main">
+		<javac srcdir="." includeantruntime="false"/>
+	</target>
+
+	<target name="Main" depends="PhoneDict">
+	 <javac srcdir='.' includes="Main.java" includeantruntime="false" />
+	</target>
+        
+	<target name="PhoneDict">
+	 <javac srcdir='.' includes="PhoneDict.java" includeantruntime="false" />	
+	</target>
+	
+
+	<!-- run -->
+	<target name="run" depends="compile">
+	    <java classname="Main">
+		<classpath>
+		    <pathelement path="${classpath}" />
+		    <pathelement location="." />
+		</classpath>
+	    </java>
+	</target>
+
+
+        <!-- clean -->
+        <target name="clean">
+            <delete>
+                 <fileset dir=".">
+                     <include name='*.class'/>
+                 </fileset>
+            </delete>
+        <delete dir="${build.dir}" />
+        </target>
+
+</project>
